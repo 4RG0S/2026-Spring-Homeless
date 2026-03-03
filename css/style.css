@@ -1887,8 +1887,8 @@ a:focus {
 ========================================= */
 @media (max-width: 767px) {
   .slider_section {
-    padding-top: 180px !important;    /* 위쪽 여백 (숫자를 키우면 더 내려감) */
-    padding-bottom: 190px !important; /* 아래쪽 여백 (숫자를 키우면 더 띄워짐) */
+    padding-top: 140px !important;    /* 위쪽 여백 (숫자를 키우면 더 내려감) */
+    padding-bottom: 180px !important; /* 아래쪽 여백 (숫자를 키우면 더 띄워짐) */
   }
   /* 4. 메인 타이틀(ARGOS) 글자 삐져나가는 현상 해결 */
   .slider_section .detail-box h1 {
@@ -1896,10 +1896,10 @@ a:focus {
     margin-bottom: 10px;
   }
   .slider_section .detail-box .slider_subtitle {
-    font-size: 1.1rem;
+    font-size: 1.4rem;
   }
   .slider_section .detail-box p {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
   }
   /* 5. Activity 블록 2개씩 배치 시, 좁은 공간에 맞게 내부 여백과 글자 축소 */
   .activity_item {
