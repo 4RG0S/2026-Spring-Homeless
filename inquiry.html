@@ -32,7 +32,7 @@
 
 </head>
 
-<body class="sub_page">
+<body class="sub_page inquiry-page no_banner">
 
   <div class="hero_area">
     <div class="hero_bg_box">
@@ -199,7 +199,20 @@
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
   <script type="text/javascript" src="js/bootstrap.js"></script>
   <script type="text/javascript" src="js/custom.js"></script>
-
-</body>
+  <script>
+    (function () {
+      var header = document.querySelector('.header_section');
+      var ticking = false;
+      function updateHeader() {
+        if (window.scrollY >= 10) { header.classList.add('scrolled'); }
+        else { header.classList.remove('scrolled'); }
+        ticking = false;
+      }
+      window.addEventListener('scroll', function () {
+        if (!ticking) { requestAnimationFrame(updateHeader); ticking = true; }
+      }, { passive: true });
+      updateHeader();
+    })();
+  </script></body>
 
 </html>

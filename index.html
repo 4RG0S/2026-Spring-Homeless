@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ko">
 
 <head>
@@ -163,7 +163,7 @@
           <div class="activity_item">
             <div class="activity_item_icon"><i class="fa fa-calendar" aria-hidden="true"></i></div>
             <h5>행사 운영</h5>
-            <p>SOGRA, JFS, 4계절 MT 등<br>동아리 주최 행사를 기획·운영합니다.</p>
+            <p>SOGRA, JFS, 사계절 MT 등<br>동아리 주최 행사를 기획·운영합니다.</p>
           </div>
         </div>
         <div class="col-12 col-md-6 col-lg-4 activity_item_wrap">
@@ -415,6 +415,21 @@
   </script>
   
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap"></script>
-</body>
+
+  <script>
+    (function () {
+      var header = document.querySelector('.header_section');
+      var ticking = false;
+      function updateHeader() {
+        if (window.scrollY >= 10) { header.classList.add('scrolled'); }
+        else { header.classList.remove('scrolled'); }
+        ticking = false;
+      }
+      window.addEventListener('scroll', function () {
+        if (!ticking) { requestAnimationFrame(updateHeader); ticking = true; }
+      }, { passive: true });
+      updateHeader();
+    })();
+  </script></body>
 
 </html>

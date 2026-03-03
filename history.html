@@ -18,9 +18,14 @@
   <link href="css/responsive.css" rel="stylesheet" />
 </head>
 
-<body class="sub_page">
+<body class="sub_page no_banner">
 
   <div class="hero_area">
+    <div class="hero_bg_box">
+      <div class="bg_img_box">
+        <img src="images/hero-bg.png" alt="ARGOS 히어로 배경">
+      </div>
+    </div>
     <header class="header_section">
       <div class="container-fluid">
         <nav class="navbar navbar-expand-lg custom_nav-container ">
@@ -56,7 +61,7 @@
         </nav>
       </div>
     </header>
-    </div>
+</div>
 
   <section style="background: white;" class="about_section layout_padding">
     <div class="container">
@@ -78,22 +83,7 @@
           <ol>
             <li><strong>NOW</strong> 역사를 쓰는중</li>
           </ol>
-          <h2>2025</h2>
-          (회장 : d0ngd0ng)
-          <ol>
-            <li><strong>04.22</strong> 제 3회 대전﹒충청 정보보호 동아리 연합(대충) 세미나 운영</li>
-          </ol>
-          <h2>2024</h2>
-          (회장 : me0w2en)
-          <ol>
-            <li><strong>04.22</strong> 제 3회 대전﹒충청 정보보호 동아리 연합(대충) 세미나 운영</li>
-            <li><strong>05.09</strong> KISA 주관 전국 정보보호 동아리 연합 KUCIS 지원 동아리 선정</li>
-            <li><strong>05.12</strong> 제 5회 SOGRA Hackathon 개최</li>
-            <li><strong>06.28</strong> 대흥동 청소년 문화의집 교육기부 정기 협약 (~2024. 02)</li>
-            <li><strong>07.01</strong> NC소프트 산학협력 과제 수주 및 수행 (~2023. 12)</li>
-            <li><strong>09.23</strong> ARGOS FRESHMAN FESTIVAL(신입생 알고리즘 대회) 개최</li>
-            <li><strong>11.11</strong> 제 7회 Just For Security CTF 주최</li>
-          </ol>
+          
           <h2>2023</h2>
           (회장 : comalmot)
           <ol>
@@ -452,5 +442,19 @@
   <script type="text/javascript" src="js/bootstrap.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
   <script type="text/javascript" src="js/custom.js"></script>
-</body>
+  <script>
+    (function () {
+      var header = document.querySelector('.header_section');
+      var ticking = false;
+      function updateHeader() {
+        if (window.scrollY >= 10) { header.classList.add('scrolled'); }
+        else { header.classList.remove('scrolled'); }
+        ticking = false;
+      }
+      window.addEventListener('scroll', function () {
+        if (!ticking) { requestAnimationFrame(updateHeader); ticking = true; }
+      }, { passive: true });
+      updateHeader();
+    })();
+  </script></body>
 </html>

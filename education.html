@@ -34,7 +34,7 @@
 
 </head>
 
-<body>
+<body class="sub_page no_banner">
 
   <div class="hero_area">
 
@@ -97,7 +97,8 @@
         </nav>
       </div>
     </header>
-      <!-- end header section -->
+</div>
+  <!-- end hero_area -->
 
   <!-- education section -->
   <section class="education_section layout_padding education">
@@ -418,8 +419,20 @@
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap">
   </script>
   <!-- End Google Map -->
-  
-
-</body>
+  <script>
+    (function () {
+      var header = document.querySelector('.header_section');
+      var ticking = false;
+      function updateHeader() {
+        if (window.scrollY >= 10) { header.classList.add('scrolled'); }
+        else { header.classList.remove('scrolled'); }
+        ticking = false;
+      }
+      window.addEventListener('scroll', function () {
+        if (!ticking) { requestAnimationFrame(updateHeader); ticking = true; }
+      }, { passive: true });
+      updateHeader();
+    })();
+  </script></body>
 
 </html>
