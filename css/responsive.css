@@ -108,3 +108,65 @@
     max-width: 1170px;
   }
 }
+
+/* ================================
+   Mobile polish for small screens
+================================ */
+@media (max-width: 768px) {
+  .layout_padding { padding: 64px 0; }
+  .layout_padding2 { padding: 54px 0; }
+  .layout_padding-top { padding-top: 64px; }
+  .layout_padding-bottom { padding-bottom: 64px; }
+
+  .heading_container h2 { font-size: 1.9rem; }
+  .slider_section .detail-box h1 { font-size: 2.2rem; }
+  .slider_section .detail-box p { font-size: 1rem; }
+
+  .tc-stage { height: clamp(380px, 55vh, 520px); border-radius: 24px; }
+}
+
+@media (max-width: 576px) {
+  /* tighter vertical rhythm */
+  .layout_padding { padding: 48px 0; }
+  .layout_padding2 { padding: 42px 0; }
+  .layout_padding-top { padding-top: 48px; }
+  .layout_padding-bottom { padding-bottom: 48px; }
+
+  .heading_container h2 { font-size: 1.6rem; }
+  .heading_container p { font-size: 0.95rem; }
+
+  /* navbar */
+  .navbar-brand span { font-size: 20px; }
+  .navbar-brand img { height: 34px; }
+
+  /* hero */
+  .slider_section { padding: 32px 0 56px 0; }
+  .slider_section .detail-box h1 { font-size: 1.9rem; line-height: 1.25; }
+  .slider_section .detail-box p { font-size: 0.95rem; }
+
+  /* buttons: full width looks cleaner */
+  .btn-box a { display: block; width: 100%; text-align: center; }
+  .btn-box a + a { margin-top: 10px; }
+
+  /* activity cards */
+  .activity_item { padding: 20px 16px; border-radius: 18px; }
+  .activity_item_icon { width: 46px; height: 46px; font-size: 18px; }
+  .activity_item h5 { font-size: 1.08rem; }
+
+  /* conference cards (if any) */
+  .conference_card_img { height: 180px; }
+  .conferences_container { padding-left: 0; padding-right: 0; }
+
+  /* timeline / carousel */
+  .tc-stage { height: clamp(340px, 56vh, 470px); border-radius: 20px; }
+  .tc-controls { gap: 8px; }
+  .tc-pill { font-size: 0.86rem; padding: 8px 12px; }
+}
+
+@media (max-width: 420px) {
+  .heading_container h2 { font-size: 1.45rem; }
+  .slider_section .detail-box h1 { font-size: 1.65rem; }
+  .activity_item { padding: 18px 14px; }
+  .activity_item_icon { width: 42px; height: 42px; }
+  .tc-stage { height: clamp(320px, 58vh, 450px); }
+}
