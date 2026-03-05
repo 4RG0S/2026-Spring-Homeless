@@ -2090,3 +2090,27 @@ a:focus {
     margin: 0 15px 0 0 !important; 
   }
 }
+
+/* =========================================
+   하단바(파란색 박스) 전체 높이 초슬림 다이어트 (PC/모바일 공통)
+========================================= */
+/* 1. 파란 박스 자체의 위아래 껍데기 여백 확 줄이기 */
+.info_section {
+  padding: 30px 0 20px 0 !important; /* 위 30px, 아래 20px (원래 70~90px 씩 들어있음) */
+}
+
+/* 2. 'Address', 'Links' 제목 밑의 휑한 공간 줄이기 */
+.info_section h4 {
+  margin-bottom: 12px !important; 
+}
+
+/* 3. 주소, 이메일, 메뉴 링크들 사이의 위아래 간격 좁히기 */
+.info_section .contact_link_box a,
+.info_section .info_links a {
+  margin: 4px 0 !important; 
+}
+
+/* 4. 인스타그램 로고 위쪽 붕 뜨는 공간 줄이기 */
+.info_section .info_social {
+  margin-top: 12px !important; 
+}

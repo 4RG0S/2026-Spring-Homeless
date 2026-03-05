@@ -1,101 +1,99 @@
-/* =========================================
-   1. 세미나 게시판 전체 레이아웃
-========================================= */
-.seminar_container {
-  padding: 40px 15px;
+/* css/seminar.css */
+
+/* 1. 세미나 전체 구역 (양쪽 여백 완벽 보장) */
+.custom-seminar-container {
+  width: 100% !important;
+  max-width: 1000px !important;
+  padding: 0 5% !important; /* 👈 화면 양쪽에 무조건 5% 빈 공간 생김 */
+  margin: 0 auto !important; /* 👈 무조건 가운데 정렬 */
 }
 
-/* 제목 가운데 정렬 확실하게 고정 (!important 추가) */
-.seminar_container .text-container,
-.seminar_container .text-container h2 {
-  text-align: center !important; 
-  width: 100%;
-  margin-bottom: 30px;
+/* 제목 한가운데 정렬 */
+.custom-seminar-container .text-container {
+  text-align: center !important;
+  margin-bottom: 30px !important;
+}
+.custom-seminar-container h2 {
+  font-size: 2rem !important;
+  font-weight: 700 !important;
+  color: #00204a !important;
 }
 
-.seminar_container .text-container h2 {
-  font-size: 2rem;
-  font-weight: 700;
-  color: #00204a; 
+/* 2. 테이블을 감싸는 스크롤 상자 (잘림 방지 핵심) */
+.custom-table-wrapper {
+  display: block !important;
+  width: 100% !important;
+  overflow-x: auto !important; /* 👈 가로 스크롤 강제 활성화 */
+  -webkit-overflow-scrolling: touch !important; /* 👈 모바일에서 부드럽게 스와이프 */
+  background-color: #fff !important;
+  border-radius: 8px !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05) !important;
 }
 
-/* =========================================
-   2. 세미나 테이블(표) 디자인
-========================================= */
-/* 모바일 가로 스크롤 & 양쪽 패딩(여백) 추가 */
-.table-responsive {
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-  margin-bottom: 20px;
-  padding: 0 20px !important; /* 👈 양쪽으로 20px씩 여백 추가 (화면 끝에 안 붙게) */
+/* 3. 테이블 디자인 */
+.custom-table-wrapper .tg {
+  width: 100% !important;
+  min-width: 600px !important; /* 👈 표 크기가 600px 이하로 안 줄어듦 -> 여기서부터 무조건 스크롤 생김! */
+  border-collapse: collapse !important;
+  margin: 0 !important;
 }
 
-/* PC/태블릿 등 화면이 클 때는 양쪽 여백을 더 넓게 */
-@media (min-width: 768px) {
-  .table-responsive {
-    padding: 0 40px !important; /* 👈 PC에서는 양쪽 40px 여백 */
-  }
+.custom-table-wrapper .tg th {
+  background-color: #3866d1 !important;
+  color: #ffffff !important;
+  padding: 15px 10px !important;
+  border: 1px solid #e1e8ed !important;
+  text-align: center !important;
+  white-space: nowrap !important; /* 👈 글씨 줄바꿈 절대 금지 (표 찌그러짐 방지) */
 }
 
-.tg {
-  width: 100%;
-  min-width: 600px; /* 👈 이 크기 때문에 모바일에서 찌그러지지 않고 스크롤이 생깁니다 */
-  border-collapse: collapse;
-  background-color: #ffffff;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+.custom-table-wrapper .tg td {
+  padding: 12px 10px !important;
+  color: #333333 !important;
+  border: 1px solid #e1e8ed !important;
+  text-align: center !important;
+  white-space: nowrap !important; /* 👈 글씨 줄바꿈 절대 금지 */
 }
 
-/* 표 머리글 (파란색 배경) */
-.tg th {
-  background-color: #3866d1;
-  color: #ffffff;
-  font-size: 1rem;
-  font-weight: 600;
-  padding: 15px 10px;
-  border: 1px solid #e1e8ed;
-  text-align: center;
+.custom-table-wrapper .tg tbody tr:hover td {
+  background-color: #f4f7fa !important;
 }
 
-.tg th span {
-  font-weight: 600;
-}
+/* 열 너비 지정 (날짜 20%, 이름 15%, 주제 55%, 학번 10%) */
+.custom-table-wrapper .tg th:nth-child(1) { width: 20% !important; } /* 세미나 날짜 */
+.custom-table-wrapper .tg th:nth-child(2) { width: 15% !important; } /* 이름 */
+.custom-table-wrapper .tg th:nth-child(3) { width: 55% !important; } /* 세미나 주제 */
+.custom-table-wrapper .tg th:nth-child(4) { width: 10% !important; } /* 학번 */
 
-/* 표 내용 */
-.tg td {
-  padding: 12px 10px;
-  font-size: 0.95rem;
-  color: #333333;
-  border: 1px solid #e1e8ed;
-  text-align: center;
-  transition: background-color 0.2s ease;
-}
-
-/* 마우스 올렸을 때 옅은 회색 하이라이트 */
-.tg tbody tr:hover td {
-  background-color: #f4f7fa;
-}
-
-/* 열 너비 비율 지정 (주제 칸을 가장 넓게) */
-.tg th:nth-child(1) { width: 10%; } /* 학번 */
-.tg th:nth-child(2) { width: 15%; } /* 이름 */
-.tg th:nth-child(3) { width: 55%; } /* 세미나 주제 */
-.tg th:nth-child(4) { width: 20%; } /* 세미나 날짜 */
-
-/* =========================================
-   3. 모바일 전용 폰트 사이즈 다이어트 (767px 이하)
-========================================= */
+/* 모바일 전용 사이즈 조절 */
 @media (max-width: 767px) {
-  .seminar_container .text-container h2 {
-    font-size: 1.5rem;
+  .custom-seminar-container h2 {
+    font-size: 1.5rem !important;
   }
-  .tg th {
-    font-size: 0.85rem;
-    padding: 10px 5px;
+  .custom-table-wrapper .tg th,
+  .custom-table-wrapper .tg td {
+    font-size: 0.85rem !important;
+    padding: 10px 8px !important;
   }
-  .tg td {
-    font-size: 0.8rem;
-    padding: 10px 5px;
+}
+/* =========================================
+   4. 스와이프 안내 문구 설정
+========================================= */
+/* PC 화면에서는 가로 스크롤이 불필요하므로 기본적으로 숨김 처리 */
+.swipe-notice {
+  display: none !important;
+}
+
+@media (max-width: 767px) {
+  /* 모바일 화면에서만 안내 문구 표시 */
+  .swipe-notice {
+    display: block !important;
+    text-align: right !important; /* 오른쪽 정렬로 표 위에 딱 붙게 */
+    font-size: 0.75rem !important; /* 부담스럽지 않은 작은 글씨 */
+    color: #888888 !important; /* 부드러운 회색 */
+    margin-bottom: 8px !important;
+  }
+  .swipe-notice i {
+    margin-right: 5px !important;
   }
 }
