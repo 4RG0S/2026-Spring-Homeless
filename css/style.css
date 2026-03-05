@@ -477,37 +477,37 @@ a:focus {
 
 .slider_section .img-box img {
   width: 100%;
-  -webkit-animation: upDown 5s infinite;
-          animation: upDown 5s infinite;
+  -webkit-animation: upDown 4s infinite;
+          animation: upDown 4s infinite;
 }
 
 @-webkit-keyframes upDown {
   0% {
-    -webkit-transform: translateY(-45px);
-            transform: translateY(-45px);
+    -webkit-transform: translateY(-25px);
+            transform: translateY(-25px);
   }
   50% {
-    -webkit-transform: translateY(45px);
-            transform: translateY(45px);
+    -webkit-transform: translateY(25px);
+            transform: translateY(25px);
   }
   100% {
-    -webkit-transform: translateY(-45px);
-            transform: translateY(-45px);
+    -webkit-transform: translateY(-25px);
+            transform: translateY(-25px);
   }
 }
 
 @keyframes upDown {
   0% {
-    -webkit-transform: translateY(-45px);
-            transform: translateY(-45px);
+    -webkit-transform: translateY(-25px);
+            transform: translateY(-25px);
   }
   50% {
-    -webkit-transform: translateY(45px);
-            transform: translateY(45px);
+    -webkit-transform: translateY(25px);
+            transform: translateY(25px);
   }
   100% {
-    -webkit-transform: translateY(-45px);
-            transform: translateY(-45px);
+    -webkit-transform: translateY(-25px);
+            transform: translateY(-25px);
   }
 }
 
@@ -1829,33 +1829,35 @@ a:focus {
 }
 
 /* =========================================
-   모바일 전용 반응형 수정 (991px 이하: 태블릿 & 모바일)
+   [1] 태블릿 & 모바일 공통 반응형 (991px 이하)
+   - 주로 상단바(네비게이션), 메뉴 형태 변화 대응
 ========================================= */
 @media (max-width: 991px) {
-  /* 1. 모바일 햄버거 버튼 크기 살짝 축소해서 상단바에 맞춤 */
+  /* 1. 모바일 햄버거 아이콘 얄쌍하게 축소 */
   .custom_nav-container .navbar-toggler {
-    width: 32px;
-    height: 36px;
-    margin-right: 15px; /* 우측 여백 확보 */
+    width: 26px !important;
+    height: 26px !important;
+    margin-right: 15px !important;
   }
   .custom_nav-container .navbar-toggler span {
-    width: 30px;
-    height: 3px;
-    margin: 5px 0;
+    width: 22px !important;
+    height: 2px !important;
+    margin: 5px auto !important;
   }
   .custom_nav-container .navbar-toggler span::before,
   .custom_nav-container .navbar-toggler span::after {
-    top: -8px;
+    height: 2px !important;
+    top: -7px !important;
   }
   .custom_nav-container .navbar-toggler span::after {
-    top: 8px;
+    top: 7px !important;
   }
 
-  /* 2. 모바일 드롭다운 메뉴 위치를 햄버거 버튼 아래(우측)로 이동 */
+  /* 2. 모바일 드롭다운 메뉴 창 위치 고정 */
   .custom_nav-container .navbar-collapse {
     position: absolute;
     top: 100%;
-    right: 15px; /* 우측 정렬 */
+    right: 15px; 
     width: 200px;
     background-color: rgba(10, 10, 67, 0.95);
     border-radius: 12px;
@@ -1863,36 +1865,60 @@ a:focus {
     box-shadow: 0 10px 30px rgba(0,0,0,0.3);
   }
 
-  /* 3. 모바일에서 하위 메뉴 위치 꼬임 방지 */
-  .navbar-nav .nav-item ul {
-    position: relative;
-    top: 0;
-    left: 0;
-    transform: none;
-    width: 100%;
-    min-width: auto;
-    background-color: transparent;
-    border: none;
-    box-shadow: none;
-    padding: 5px 0 0 0;
+  /* 3. 투명인간이던 하위 메뉴(동아리 활동 안쪽)를 아예 보이게 펼쳐두기 */
+  .custom_nav-container .navbar-nav .nav-item ul {
+    position: relative !important;
+    left: 0 !important;          /* 👈 핵심: PC버전의 50% 밀어내기 설정을 무력화 */
+    right: 0 !important;         /* 👈 확실하게 꽉 채우기 */
+    visibility: visible !important; 
+    opacity: 1 !important;
+    display: block !important;
+    transform: none !important;
+    width: 100% !important;
+    min-width: auto !important;
+    background-color: rgba(0, 0, 0, 0.2) !important; 
+    border: none !important;
+    box-shadow: none !important;
+    border-radius: 8px !important;
+    padding: 5px 0 !important;
+    margin: 5px 0 10px 0 !important; 
+    text-align: center !important; /* 👈 글씨도 위아래 메뉴와 똑같이 가운데 정렬 */
   }
-  .navbar-nav .nav-item:hover ul,
-  .navbar-nav .nav-item.active:hover ul {
-    transform: none;
+
+  /* 하위 메뉴(정기 세미나 등) 글씨 크기 및 디자인 다듬기 */
+  .custom_nav-container .navbar-nav .nav-item ul li a.nav-link {
+    font-size: 0.85rem !important;
+    padding: 8px 15px !important;
+    color: rgba(255, 255, 255, 0.75) !important; 
+    display: block !important;
+  }
+  .custom_nav-container .navbar-nav .nav-item ul li a.nav-link:hover {
+    color: #ffffff !important;
+    background-color: transparent !important;
   }
 }
 
 /* =========================================
-   모바일 전용 반응형 수정 (767px 이하: 스마트폰)
+   [2] 스마트폰 전용 반응형 (767px 이하)
+   - 모바일 화면에 맞춰 글자 크기, 여백, 구조 다이어트
 ========================================= */
 @media (max-width: 767px) {
+  
+  /* --- 1. 메인 배너(Hero) 섹션 --- */
   .slider_section {
-    padding-top: 140px !important;    /* 위쪽 여백 (숫자를 키우면 더 내려감) */
-    padding-bottom: 180px !important; /* 아래쪽 여백 (숫자를 키우면 더 띄워짐) */
+    padding-top: 140px !important;    
+    padding-bottom: 180px !important; 
   }
-  /* 4. 메인 타이틀(ARGOS) 글자 삐져나가는 현상 해결 */
+  .slider_section .img-box {
+    margin: 0; 
+    position: relative;
+    top: -15px !important; 
+  }
+  .slider_section .carousel-inner {
+    overflow: visible !important;
+  }
   .slider_section .detail-box h1 {
-    font-size: 3.5rem; /* 7rem -> 3.5rem 절반으로 축소 */
+    font-size: 3.5rem; 
     margin-bottom: 10px;
   }
   .slider_section .detail-box .slider_subtitle {
@@ -1901,76 +1927,59 @@ a:focus {
   .slider_section .detail-box p {
     font-size: 0.8rem;
   }
-  /* 5. Activity 블록 2개씩 배치 시, 좁은 공간에 맞게 내부 여백과 글자 축소 */
-  .activity_item {
-    padding: 20px 10px; 
-  }
-  .activity_item h5 {
-    font-size: 0.95rem;
-  }
-  .activity_item p {
-    font-size: 0.8rem;
-    line-height: 1.4;
-  }
-  .activity_item_icon {
-    width: 40px;
-    height: 40px;
-    font-size: 1.2rem;
-    margin-bottom: 12px;
-  }
-  /* 6. 동아리 소개(About) 섹션 모바일 전용 축소 */
+
+  /* --- 2. 동아리 소개(About) 섹션 --- */
   .about_section .heading_container h2 {
-    font-size: 1.8rem; /* '동아리 소개' 제목 크기 줄이기 */
+    font-size: 1.8rem; 
   }
   .about_section .heading_container p {
-    font-size: 0.85rem; /* 부제목 크기 줄이기 */
+    font-size: 0.85rem; 
   }
-  
-  /* HTML에 하드코딩된 300px 무시하고 강제 축소 (!important 필수) */
   .about_section .img-box img {
     width: 160px !important; 
     height: 160px !important;
-    margin-bottom: 0px; /* 로고와 밑에 글씨 사이에 숨통 트여주기 */
+    margin-bottom: 0px; 
   }
-  
-  /* 본문 설명 글자 축소 */
   .about_section .detail-box p {
-    font-size: 0.9rem; /* 본문 글자 크기 축소 (원래 1.125rem) */
-    line-height: 1.6;  /* 글씨가 작아진 만큼 줄간격도 살짝 조정 */
+    font-size: 0.9rem; 
+    line-height: 1.6;  
     margin-top: 10px;
   }
-  /* 7. Activity 섹션 제목 및 내용 글자 크기 확실하게 줄이기 */
-  /* 'ARGOS는 이러한 활동을 합니다' 메인 제목 */
+
+  /* --- 3. Activity (6개 블록) 섹션 --- */
   .activity_section .heading_container h2 {
-    font-size: 1.5rem !important; /* 원래 2.1rem에서 확 줄임 */
+    font-size: 1.5rem !important; 
     margin-bottom: 20px !important;
   }
-  
-  /* 위에 작게 적힌 'Activity' 부제목 */
   .activity_section .activity_subtitle {
     font-size: 0.75rem !important; 
   }
-
-  /* 개별 블록 안쪽 내용 (아까보다 한 단계 더 축소) */
+  .activity_item {
+    padding: 20px 10px; 
+  }
   .activity_item h5 {
     font-size: 0.85rem !important; 
     margin-bottom: 8px !important;
   }
   .activity_item p {
     font-size: 0.75rem !important; 
-    line-height: 1.3 !important; /* 줄간격도 살짝 타이트하게 */
+    line-height: 1.3 !important; 
   }
-  
-  /* 아이콘 크기도 글씨에 맞춰서 조금 더 작게 */
   .activity_item_icon {
     width: 36px !important;
     height: 36px !important;
     font-size: 1.1rem !important;
     margin-bottom: 10px !important;
   }
-  /* 8. 학술 행사(Conferences) 모바일 2단 배치 및 크기 축소 */
-  
-  /* 메인 제목 축소 */
+
+  /* --- 4. 3D 카드 슬라이더 (Taskchanger) --- */
+  .activity_taskchanger { padding-bottom: 60px; }
+  .tc-stage { width: 100%; height: 480px; border-radius: 20px; }
+  .tc-card { width: min(580px, 88%); height: 320px; border-radius: 18px; } 
+  .tc-arrow { width: 28px; height: 28px; border-radius: 5px; } 
+  .tc-arrow svg { width: 12px; height: 12px; } 
+
+  /* --- 5. 학술 행사(Conferences) 섹션 --- */
   .conferences_section .heading_container h2 {
     font-size: 1.5rem !important; 
     margin-bottom: 5px !important;
@@ -1979,29 +1988,21 @@ a:focus {
     font-size: 0.8rem !important;
     margin-bottom: 25px !important;
   }
-
-  /* 카드 사이 간격(여백) 살짝 줄여서 공간 확보 */
   .conference_card_wrap {
     padding-left: 5px !important; 
     padding-right: 5px !important;
     margin-bottom: 10px !important;
   }
-  
-  /* 카드 안의 그림 영역 높이 축소 (원래 120px) */
   .conference_card_img {
     height: 80px !important; 
     padding: 10px !important;
   }
-
-  /* 카드 안의 제목(해킹 시연회 등) 크기 축소 */
   .conference_card > h5 {
     font-size: 0.85rem !important;
     margin-top: 10px !important;
     margin-bottom: 8px !important;
     padding-bottom: 8px !important;
   }
-  
-  /* 카드 안의 설명 글씨 축소 */
   .conference_card > p {
     font-size: 0.7rem !important;
     line-height: 1.3 !important;
@@ -2009,59 +2010,83 @@ a:focus {
     padding-left: 5px !important;
     padding-right: 5px !important;
   }
-  
-  /* '자세히 보기' 글씨 축소 */
   .conference_card_more {
     font-size: 0.7rem !important;
     padding-bottom: 12px !important;
   }
-  
-  /* 맨 밑에 있는 '전체 행사 자세히 보기' 버튼 크기 축소 */
   .conference_btn {
     padding: 8px 20px !important;
     font-size: 0.85rem !important;
     margin-top: 20px !important;
   }
-  /* 9. 하단바(Footer/Info) 모바일 2단 배치 및 글자 크기 축소 */
-  
-  /* 하단바 전체 위아래 여백 줄이기 */
+
+  /* --- 6. 하단바(Footer/Info) 섹션 모바일 정렬 수정 (칸 중앙, 글씨 왼쪽) --- */
   .info_section {
     padding: 30px 0 15px 0 !important; 
   }
 
-  /* Address, Links 제목 크기 축소 */
+  /* 각각 50%를 차지하는 칸 안에서 내용물 박스를 중앙에 예쁘게 배치 */
+  .info_section .info_col {
+    display: flex !important;
+    flex-direction: column !important; /* 👈 이거 없으면 주소랑 인스타가 가로로 꼬입니다 */
+    justify-content: flex-start !important; 
+    align-items: flex-start !important; 
+  }
+
+  /* 내용물 박스 안쪽의 글씨와 요소들은 모두 왼쪽으로 가지런히 정렬 */
+  .info_section .info_contact,
+  .info_section .info_link_box {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start !important; 
+    text-align: left !important;
+  }
+  
   .info_section h4 {
     font-size: 1.05rem !important; 
     margin-bottom: 12px !important;
   }
-
-  /* 주소, 이메일 글씨 축소 및 줄바꿈 예쁘게 처리 */
+  
+  /* 주소, 이메일 묶음 왼쪽 정렬 */
+  .info_section .info_contact .contact_link_box {
+    align-items: flex-start !important; 
+  }
   .info_section .info_contact .contact_link_box a {
     font-size: 0.75rem !important;
     margin: 5px 0 !important;
-    align-items: flex-start; /* 글씨가 길어져 두 줄이 될 때 아이콘 위치 상단 고정 */
+    align-items: flex-start !important; 
+    justify-content: flex-start !important; /* 왼쪽 정렬의 핵심 */
   }
   .info_section .info_contact .contact_link_box a i {
-    margin-top: 4px; /* 아이콘을 글자 높이에 맞게 살짝 내림 */
-    margin-right: 8px !important;
+    margin-top: 3px !important; /* 아이콘을 글자 높이에 맞게 살짝 내림 */
+    margin-right: 8px !important; 
   }
   .info_section .info_contact .contact_link_box a span {
-    word-break: keep-all; /* '대전광역시' 같은 단어가 중간에 안 끊기게 방지 */
+    word-break: keep-all; 
     line-height: 1.4 !important;
+    text-align: left !important;
   }
 
-  /* Links 쪽(Home, 동아리 활동 등) 글씨 축소 */
+  /* Links 쪽(Home, 동아리 활동 등) 링크들 왼쪽 정렬 */
+  .info_section .info_links {
+    align-items: flex-start !important; 
+  }
   .info_section .info_links a {
     font-size: 0.8rem !important;
     margin-bottom: 8px !important;
   }
 
-  /* 인스타그램 아이콘 크기 및 여백 축소 */
+  /* 인스타그램 아이콘도 자연스럽게 왼쪽 흐름에 맞추기 */
   .info_section .info_social {
+    display: flex !important;
+    width: 100% !important; /* 👈 구역을 꽉 채워야 왼쪽 끝으로 딱 붙음 */
+    justify-content: flex-start !important; 
     margin-top: 15px !important;
     margin-bottom: 0 !important;
+    padding-left: 2px !important; /* 위의 위치, 메일 아이콘들과 세로줄 미세하게 맞추기 */
   }
   .info_section .info_social a {
     font-size: 20px !important; 
+    margin: 0 15px 0 0 !important; 
   }
 }
