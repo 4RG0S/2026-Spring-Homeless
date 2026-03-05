@@ -1,0 +1,101 @@
+/* =========================================
+   1. 세미나 게시판 전체 레이아웃
+========================================= */
+.seminar_container {
+  padding: 40px 15px;
+}
+
+/* 제목 가운데 정렬 확실하게 고정 (!important 추가) */
+.seminar_container .text-container,
+.seminar_container .text-container h2 {
+  text-align: center !important; 
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+.seminar_container .text-container h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #00204a; 
+}
+
+/* =========================================
+   2. 세미나 테이블(표) 디자인
+========================================= */
+/* 모바일 가로 스크롤 & 양쪽 패딩(여백) 추가 */
+.table-responsive {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin-bottom: 20px;
+  padding: 0 20px !important; /* 👈 양쪽으로 20px씩 여백 추가 (화면 끝에 안 붙게) */
+}
+
+/* PC/태블릿 등 화면이 클 때는 양쪽 여백을 더 넓게 */
+@media (min-width: 768px) {
+  .table-responsive {
+    padding: 0 40px !important; /* 👈 PC에서는 양쪽 40px 여백 */
+  }
+}
+
+.tg {
+  width: 100%;
+  min-width: 600px; /* 👈 이 크기 때문에 모바일에서 찌그러지지 않고 스크롤이 생깁니다 */
+  border-collapse: collapse;
+  background-color: #ffffff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+/* 표 머리글 (파란색 배경) */
+.tg th {
+  background-color: #3866d1;
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 15px 10px;
+  border: 1px solid #e1e8ed;
+  text-align: center;
+}
+
+.tg th span {
+  font-weight: 600;
+}
+
+/* 표 내용 */
+.tg td {
+  padding: 12px 10px;
+  font-size: 0.95rem;
+  color: #333333;
+  border: 1px solid #e1e8ed;
+  text-align: center;
+  transition: background-color 0.2s ease;
+}
+
+/* 마우스 올렸을 때 옅은 회색 하이라이트 */
+.tg tbody tr:hover td {
+  background-color: #f4f7fa;
+}
+
+/* 열 너비 비율 지정 (주제 칸을 가장 넓게) */
+.tg th:nth-child(1) { width: 10%; } /* 학번 */
+.tg th:nth-child(2) { width: 15%; } /* 이름 */
+.tg th:nth-child(3) { width: 55%; } /* 세미나 주제 */
+.tg th:nth-child(4) { width: 20%; } /* 세미나 날짜 */
+
+/* =========================================
+   3. 모바일 전용 폰트 사이즈 다이어트 (767px 이하)
+========================================= */
+@media (max-width: 767px) {
+  .seminar_container .text-container h2 {
+    font-size: 1.5rem;
+  }
+  .tg th {
+    font-size: 0.85rem;
+    padding: 10px 5px;
+  }
+  .tg td {
+    font-size: 0.8rem;
+    padding: 10px 5px;
+  }
+}
