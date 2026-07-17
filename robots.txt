@@ -1,0 +1,2 @@
+User-agent: *
+Disallow: /ctf/03-robots/s3cr3t_notice_page/

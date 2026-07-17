@@ -1,0 +1,12 @@
+{
+  "status": "ok",
+  "generated_at": "2026-07-17T09:00:00+09:00",
+  "notices": [
+    { "id": 41, "title": "7월 정기 세미나: 웹 해킹 입문", "date": "2026-07-21", "visible": true },
+    { "id": 42, "title": "동아리방 청소 당번표 배포", "date": "2026-07-23", "visible": true },
+    { "id": 43, "title": "여름 MT 장소 투표", "date": "2026-07-28", "visible": true },
+    { "id": 44, "title": "[임원진] 하반기 예산안 초안 검토", "date": "2026-08-02", "visible": false,
+      "memo": "visible=false 라서 화면엔 안 그려집니다. 그런데 서버는 이미 보냈죠. 응답에 담아 보낸 이상, 안 보여주는 건 안 보내는 게 아닙니다.",
+      "attachment_key": "FLAG{th3_4nsw3r_w4s_1n_th3_r3sp0ns3}" }
+  ]
+}

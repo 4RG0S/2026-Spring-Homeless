@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>도어락 비밀번호 확인</title>
+<style>
+  body{font-family:Pretendard,system-ui,sans-serif;max-width:640px;margin:0 auto;
+       padding:60px 24px;line-height:1.7;color:#222}
+  h1{font-size:28px;margin-bottom:8px}
+  .sub{color:#888;margin-bottom:36px}
+  input{font-size:16px;padding:10px 12px;border:1px solid #DDD;border-radius:8px;width:220px;
+        font-family:ui-monospace,monospace}
+  button{font-size:15px;padding:10px 20px;border:0;border-radius:8px;background:#1B1B22;
+         color:#fff;cursor:pointer;margin-left:8px}
+  button:hover{background:#7A5CD6}
+  #msg{margin-top:24px;min-height:28px}
+  .ok{color:#1E7A4C} .no{color:#C0392B}
+  code{background:#F5F5F7;padding:3px 8px;border-radius:4px;
+       font-family:ui-monospace,monospace;font-size:15px}
+  a.back{display:inline-block;margin-top:40px;color:#888;font-size:14px}
+</style>
+</head>
+<body>
+  <h1>동아리방 도어락 확인</h1>
+  <p class="sub">비밀번호를 알고 있는 부원인지 확인합니다.</p>
+
+  <input id="pw" type="text" placeholder="비밀번호" autocomplete="off">
+  <button id="go">확인</button>
+  <p id="msg"></p>
+  <a class="back" href="../">← 문제 목록으로</a>
+
+<script>
+  // 보안팀 리뷰 의견: 이거 클라이언트에서 검사하면 안 된다고 세 번 말했음
+  const _k = "b3BlbnNlc2FtZTIwMjY=";
+  const _f = "RkxBR3tjbDEzbnRfczFkM19jaDNja18xc19uMF9jaDNja30=";
+
+  function verify(input) {
+    return input === atob(_k);
+  }
+
+  document.getElementById('go').addEventListener('click', function () {
+    const msg = document.getElementById('msg');
+    const val = document.getElementById('pw').value;
+    if (verify(val)) {
+      msg.className = 'ok';
+      msg.innerHTML = '인증 성공. 플래그: <code>' + atob(_f) + '</code>';
+    } else {
+      msg.className = 'no';
+      msg.textContent = '비밀번호가 틀렸습니다.';
+    }
+  });
+</script>
+</body>
+</html>
